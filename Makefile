@@ -6,6 +6,7 @@
 
 CFLAGS = -g -Wall -Werror -std=c99
 CFLAGS += -D_GNU_SOURCE
+CFLAGS += -fPIC # needed due to our shared library shenanigans
 LDLIBS = -lcheck -lm -lpthread -lrt
 
 all: scan-build test example
