@@ -9,7 +9,7 @@ CFLAGS += -D_GNU_SOURCE
 CFLAGS += -fPIC # needed due to our shared library shenanigans
 LDLIBS = -lcheck -lm -lpthread -lrt
 
-all: scan-build test example
+all: scan-build test
 	@echo "+++ All good."""
 
 test: tests
