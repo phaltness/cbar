@@ -305,7 +305,7 @@ START_TEST(test_cbar_request)
 
     /* send some, should fire once */
     cbar_post(&cbar, LINE_REQ1);
-    cbar_post(&cbar, LINE_REQ1);
+    ck_assert_int_eq(cbar_pending(&cbar, LINE_REQ2), false);
     ck_assert_int_eq(cbar_pending(&cbar, LINE_REQ1), true);
     ck_assert_int_eq(cbar_pending(&cbar, LINE_REQ1), false);
 
@@ -314,6 +314,7 @@ START_TEST(test_cbar_request)
     cbar_post(&cbar, LINE_REQ2);
     ck_assert_int_eq(cbar_pending(&cbar, LINE_REQ2), true);
     ck_assert_int_eq(cbar_pending(&cbar, LINE_REQ2), false);
+
 }
 END_TEST
 
